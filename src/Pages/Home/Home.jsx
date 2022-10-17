@@ -3,6 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import {Link} from 'react-router-dom';
 import './Home.css';
+import Card from '../../Components/Card/Card';
 export default function Home(){
 
     let [popularMovies,setPopularMovies]=useState([]);
@@ -28,9 +29,6 @@ export default function Home(){
                         <div className='movie_title'>{movie ? movie.original_title: ""}</div>
                         <div className='movie_date'>Released on: {movie ? movie.release_date: ""}</div>
                         <div className='movie_rating'>Rating: {movie ? movie.vote_average:"" }<span><i class="fa fa-star" aria-hidden="true"/></span></div>
-                    </div>
-                    <div className='posterImage_overview'>
-                        <div className='movie_title'>{movie ? movie.overview: ""}</div>
                     </div>
                    </Link>
                 ))
