@@ -1,0 +1,27 @@
+.poster{
+    position: relative;
+}
+.posterImage_desciption{
+    position: absolute;
+    padding: 20px;
+    z-index: 1;
+    bottom: 30px;
+    background-color: rgba(18, 17, 17, 0.737);
+    border-radius: 0px 30px 30px 0px;
+    width: 40%;
+
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    text-align: start;
+}
+.movie_date{
+    font-size: 20px;
+    padding-top: 20px;
+    color: rgb(172, 170, 170);
+}
+.movie_rating{
+    font-size: 20px;
+    padding-top: 20px;
+    color: rgb(248, 191, 4);
+}
