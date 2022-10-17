@@ -29,6 +29,9 @@ export default function Home(){
                         <div className='movie_date'>Released on: {movie ? movie.release_date: ""}</div>
                         <div className='movie_rating'>Rating: {movie ? movie.vote_average:"" }<span><i class="fa fa-star" aria-hidden="true"/></span></div>
                     </div>
+                    <div className='posterImage_overview'>
+                        <div className='movie_title'>{movie ? movie.overview: ""}</div>
+                    </div>
                    </Link>
                 ))
             }
