@@ -2,8 +2,8 @@ import React,{useEffect,useState} from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import {Link} from 'react-router-dom';
+import TypeList from '../../Components/TypeList/TypeList';
 import './Home.css';
-import Card from '../../Components/Card/Card';
 export default function Home(){
 
     let [popularMovies,setPopularMovies]=useState([]);
@@ -40,6 +40,7 @@ export default function Home(){
                 ))
             }
           </Carousel>
+          <TypeList/>
         </div>
     );
 }

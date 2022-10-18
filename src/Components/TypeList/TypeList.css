@@ -1,0 +1,14 @@
+.TypeList {
+    padding: 0 3rem 3rem 3rem;
+}
+
+.TypeList_Head{
+font-size: 1.75rem;
+margin:  2.5rem;
+}
+
+.TypeList_Cards{
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: center;
+}
