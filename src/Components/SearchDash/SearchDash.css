@@ -1,0 +1,11 @@
+.SearchDash{
+    height: 400px;
+    width: 600px;
+    position: absolute;
+    right: 40px;
+    top: 50px;
+    z-index: 2;
+    border-radius: 5px;
+    background-color: rgb(28, 28, 28);
+    display: none;
+}
