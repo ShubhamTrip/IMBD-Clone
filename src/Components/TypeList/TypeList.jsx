@@ -26,9 +26,9 @@ export default function TypeList(){
             <h1 className="TypeList_Head">{(type? type : "POPULAR").toUpperCase()}</h1>
             <div className="TypeList_Cards">
                 {
-                    movieList.map(movie=>{
+                    movieList.map(movie=>(
                         <Card movie={movie}/>
-                    })
+                    ))
                 }
             </div>
         </div>

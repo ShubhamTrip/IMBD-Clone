@@ -11,9 +11,7 @@ export default function Card({movie}){
         setTimeout(()=>{setLoading(false)},1500)
     },[]);
 
-    return(
-        <>
-          { isLoading ? 
+    return <>{ isLoading ? 
             <div className="cards">
             <SkeletonTheme color="#202020" highlightColor="#444">
                 <Skeleton height={300} duration={2} />
@@ -35,5 +33,5 @@ export default function Card({movie}){
            
         }
         </>
-    );
+    
 }
