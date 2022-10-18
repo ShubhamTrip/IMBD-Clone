@@ -25,10 +25,16 @@ export default function Home(){
                     <div className='posterImage'>
                        <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt="" />
                     </div>
-                    <div className='posterImage_desciption'>
-                        <div className='movie_title'>{movie ? movie.original_title: ""}</div>
-                        <div className='movie_date'>Released on: {movie ? movie.release_date: ""}</div>
-                        <div className='movie_rating'>Rating: {movie ? movie.vote_average:"" }<span><i class="fa fa-star" aria-hidden="true"/></span></div>
+                    <div className='posterImage_description'>
+                        <div className='description_left'>
+                          <div className='movie_title'>{movie ? movie.original_title: ""}</div>
+                          <div className='movie_date'>Released on: {movie ? movie.release_date: ""}</div>
+                          <div className='movie_rating'>Rating: {movie ? movie.vote_average:"" }<span><i class="fa fa-star" aria-hidden="true"/></span></div>
+                        </div>
+                        <div className='description_right'>
+                            <p className='description_right_head'>OverView</p>
+                            <p className='description_right_text'>{movie ? (movie.overview.length>230 ? movie.overview.slice(0,230)+"..." : movie.overview.slice(0,230)) : ( "")}</p>
+                        </div>
                     </div>
                    </Link>
                 ))
