@@ -1,9 +1,9 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './Header.css';
 import {Link} from 'react-router-dom';
 import SearchDash from '../SearchDash/SearchDash';
 export default function Header(){
-      
+     let [sd,setsd]=useState('none');
      return(
         <div className='header'>
             <div className='headerLeft'>
@@ -13,10 +13,10 @@ export default function Header(){
             <Link to='/movies/upcoming' style={{textDecoration:'none'}}><span>Upcoming</span></Link>
            </div>
            <div className='headerRight'>
-              <input type="text" placeholder='Search for the movie by name' />
+              <input type="text" placeholder='Search for the movie by name' onChange={(e)=>{(e.target.value.length)>0?setsd('block'):setsd('none')}} />
               <button >Search</button>
            </div>
-           <SearchDash/>
+           <SearchDash style={{display:sd}}/>
         </div>
      );
 

@@ -55,10 +55,7 @@ a > span:hover {
     background-color: rgb(255, 191, 0);
 }
 
+
 .headerRight button:active{
     background-color: rgb(139, 139, 138);
-}
-
-.headerRight input:active .SearchDash{
-   display: block;
 }
