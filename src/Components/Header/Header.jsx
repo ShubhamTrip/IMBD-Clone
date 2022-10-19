@@ -13,7 +13,7 @@ export default function Header(){
             <Link to='/movies/upcoming' style={{textDecoration:'none'}}><span>Upcoming</span></Link>
            </div>
            <div className='headerRight'>
-              <input type="text" placeholder='Search for the movie by name' onChange={(e)=>{(e.target.value.length)>0?setsd('block'):setsd('none')}} />
+              <input type="text" placeholder='Search for the movie by name' onFocus={()=>{setsd('block')}} onBlur={()=>{setsd('none')}}/>
               <button >Search</button>
            </div>
            <SearchDash style={{display:sd}}/>
