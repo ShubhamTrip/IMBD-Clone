@@ -20,6 +20,13 @@ export default function Header(){
      
      let [search,setSearch]=useState("");
 
+     function SearchFunc(e){
+      setSearch(e.target.value);
+      
+      e.target.value.length>0? setsd('block'):setsd('none');
+
+     }
+
      return(
         <div className='header'>
             <div className='headerLeft'>
@@ -29,14 +36,14 @@ export default function Header(){
             <Link to='/movies/upcoming' style={{textDecoration:'none'}}><span>Upcoming</span></Link>
            </div>
            <div className='headerRight'>
-              <input type="text" placeholder='Search for the movie by name' onChange={(e)=>setSearch(e.target.value)} onFocus={()=>{setsd('block')}} onBlur={()=>{setsd('none')}}/>
+              <input type="text" placeholder='Search for the movie by name' onChange={(e)=>SearchFunc(e)} />
               <button >Search</button>
            </div>
            <div className='SearchDash' style={{display:sd}}>
               {
              dataMov.filter((dta)=>(dta.original_title.includes(search)))
              .map((val)=>(
-             <li key={val.id}>{val.original_title}</li>
+             <Link key={val.id} to={`/movie/${val.id}`} className='searchresults'>{val.original_title}</Link>
              ))}
             
            </div>
