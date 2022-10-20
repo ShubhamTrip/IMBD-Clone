@@ -1,20 +1,21 @@
 import React,{useState,useEffect} from 'react';
 import './Header.css';
 import {Link} from 'react-router-dom';
-import SearchDash from '../SearchDash/SearchDash';
+// import SearchDash from '../SearchDash/SearchDash';
 export default function Header(){
      let [sd,setsd]=useState('none');
      let [dataMov,setDataMov]=useState([]);
+   
      useEffect(() => {
       getData();
-     }, []);
+     },[]);
 
      function getData(){
         let arr=[];
         fetch("https://api.themoviedb.org/3/movie/popular?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US")
         .then(prop => prop.json()).then(data=>{
-
-         for(let i=0;i<20;i++){
+         
+         for(let i=0;i<data.results.length;i++){
             arr.push(data.results[i].original_title);
          }
          setDataMov(arr);
@@ -22,23 +23,8 @@ export default function Header(){
 
         
      }
-      
-     let search;
-     function SearchFunc(e){
-       search = e.target.value;
-       let arr = dataMov.filter(func);
-
-       function func(val){
-         for(let i=0;i<search.length;i++){
-             if(search[i]!=val[i]){
-                  return;
-             }
-         }
-         return val;
-       }
-       
-       
-     }
+     
+     let [search,setSearch]=useState("");
 
      return(
         <div className='header'>
@@ -49,11 +35,14 @@ export default function Header(){
             <Link to='/movies/upcoming' style={{textDecoration:'none'}}><span>Upcoming</span></Link>
            </div>
            <div className='headerRight'>
-              <input type="text" placeholder='Search for the movie by name' onChange={(e)=>{SearchFunc(e)}} onFocus={()=>{setsd('block')}} onBlur={()=>{setsd('none')}}/>
+              <input type="text" placeholder='Search for the movie by name' onChange={(e)=>setSearch(e.target.value)} onFocus={()=>{setsd('block')}} onBlur={()=>{setsd('none')}}/>
               <button >Search</button>
            </div>
-           <SearchDash style={{display:sd}}/>
+           <div className='SearchDash' style={{display:sd}}>
+             {dataMov.filter((dta)=>dta.includes(search)).map((dta)=>(
+               <li>{dta}</li>
+             ))}
+           </div>
         </div>
-     );
-
+       );
 }
