@@ -11,17 +11,11 @@ export default function Header(){
      },[]);
 
      function getData(){
-        let arr=[];
         fetch("https://api.themoviedb.org/3/movie/popular?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US")
         .then(prop => prop.json()).then(data=>{
-         
-         for(let i=0;i<data.results.length;i++){
-            arr.push(data.results[i].original_title);
-         }
-         setDataMov(arr);
+         setDataMov(data.results);
         });
 
-        
      }
      
      let [search,setSearch]=useState("");
@@ -39,9 +33,12 @@ export default function Header(){
               <button >Search</button>
            </div>
            <div className='SearchDash' style={{display:sd}}>
-             {dataMov.filter((dta)=>dta.includes(search)).map((dta)=>(
-               <li>{dta}</li>
+              {
+             dataMov.filter((dta)=>(dta.original_title.includes(search)))
+             .map((val)=>(
+             <li key={val.id}>{val.original_title}</li>
              ))}
+            
            </div>
         </div>
        );
